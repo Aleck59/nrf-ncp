@@ -3,13 +3,11 @@ on:
     branches:
       - main
   push:
-    branches:
-      - main
   workflow_dispatch:
 
 env:
-  SDK_VER: v2.8.0
-  SDK_VER_HEX: "0x02080000"
+  SDK_VER: v2.9.0
+  SDK_VER_HEX: "0x02090000"
   BOARD: nrf52840dk_nrf52840
   BAUDRATE: 115200
 
