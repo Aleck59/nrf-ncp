@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
 
 env:
-  SDK_VER: v2.7.0
-  SDK_VER_HEX: "0x02070000"
+  SDK_VER: v2.8.0
+  SDK_VER_HEX: "0x02080000"
   BOARD: nrf52840dk_nrf52840
   BAUDRATE: 115200
 
@@ -22,10 +22,10 @@ jobs:
           # Clone the repo to a subdirectory, so we can initialize the Zephyr
           # workspace in the parent directory.
           path: zephyr-workspace/extra
-      - name: Set up Python 3.12
+      - name: Set up Python 3.13
         uses: actions/setup-python@v5
         with:
-           python-version: 3.12
+           python-version: 3.13
 
       - name: 🧰 Install Dependencies + West
         # Install the Zephyr host build dependencies, and the `west` Python tool.
@@ -85,7 +85,7 @@ jobs:
       - name: 🔨 Build DFU package
         run: >-
           adafruit-nrfutil dfu genpkg --dev-type 0x0052 --application zephyr-workspace/build/ncp-$BOARD-$SDK_VER-$BAUDRATE.hex zephyr-workspace/build/ncp-$BOARD-$SDK_VER-$BAUDRATE-dfu.zip
-          
+
       - name: 📦 Save Build Artifacts
         uses: actions/upload-artifact@v4
         with:
