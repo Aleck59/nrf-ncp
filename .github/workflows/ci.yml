@@ -7,7 +7,7 @@ on:
 
 env:
   SDK_VER: v3.1.1
-  SDK_VER_HEX: "0x02090200"
+  SDK_VER_HEX: "0x03010100"
   BOARD: nrf52840dk_nrf52840
   BAUDRATE: 115200
 
